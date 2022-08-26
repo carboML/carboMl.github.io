@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic Page - Massively by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li class="active"><a href="blog_1.html">Airbnb Madrid</a></li>
+
+						</ul>
+						<ul class="icons">
+							<li><a href="www.linkedin.com/in/pablo-carbonero-alvarez0112358" class="icon brands fa-linkedin"><span class="label">GitHub</span></a></li>
+							<li><a href="https://github.com/carboML" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+
+									<h2> This is what you should know about Airbnb Madrid
+									</h2>
+
+								</header>
+								<div class="image main"><img src="images/madrid.jpg" alt="City of Madrid " /></div>
+								<p>Madrid is the capital city of Spain, with around 3.223 million people living in the city. 
+                                This is a lot. Just to put this into context, the whole country of Norway has 5.279 million
+                                habitants. This means we could fit 61% of the entire country's population into this city.</p>
+                                <p>A lot of people means a lot of houses, and a big city means tourism. This is the perfect combination
+								 for a huge offering of Airbnb accommodations. In this post, we are going to ask ourselves
+                                some questions. </p>
+
+                                <ol>
+                                    <li>Does Madrid have the same offer of accommodation all around the city, or are there neighbourhoods that have more of it?</li>
+                                    <li>If a neighborhood group has a lot of accommodations, does it mean that each of its individual neighbourhoods has them too?</li>
+                                    <li>Are the prices equal all over Madrid?</li>
+                                    <li>How are the prices and availability rates in Madrid over the months?</li>
+                                    <li>How well can we fit a model with the data provided to estimate the price of an accommodation?</li>
+                                </ol>
+
+                                <p>To answer all this questions, I will be using a dataset from <a href="http://insideairbnb.com/madrid">Airbnb</a>, available for free. This dataset
+								has a lot of information about each single accommodation in the city of Madrid</p>
+                                
+								<h4>Does Madrid have the same offer of accommodation all around the city, or are there neighbourhoods that have more of it?</h4>
+								<p>To begin with, let's use the data to discover how much offer each neighbourhood group have. With this info, I created a bar plot. Each bar 
+                                and colour represent a neighbourhood group. 
+                                The bigger the bar, the more of the total offer the neighborhood group has</p>
+								<img src="images/1.png"width="600" />
+
+
+
+                                <p>As we can see in the box plot above, there is a neighborhood group that have way more to offer than the others. The neighborhood group "Centro" represents more than 40% of 
+								the total accommodation offered in the whole city of Madrid. Centro in English means "center of the city", so it makes sense that people using 
+								Airbnb accommodation are normally tourists that go to the center of the city.</p>
+
+                                <p>Each neighborhood group is formed by some neighborhoods. So, if a neighborhood group has a lot of offers, does it mean that each neighborhood inside of this group has them too? </p>
+                                <h4>If a neighborhood group has a lot of accommodations, does it mean that each of its individual neighbourhoods has them too?</h4>
+
+								<p>Let's try to answer this question based on a plot. To visualize this, I make the same plot as before, but this time with each individual neighborhood's offer. 
+								The color of each bar will represent the neighborhood group they are part of. If the bar plot gets the same arcoiris pattern, the answer will be yes.</p>
+
+                                <div class="image"><img src="images/2.png"  width="700" /></div>
+
+
+								<p>As we can see, the plot doesn't show an arcoiris pattern, so the answer to this question is no. Although we didn't get this pattern, we 
+								can see that the first 6 neighborhoods are part of the central zone,
+								which makes sense. Apparently, the rest of the offer is more or less equally distributed all around the rest of the city.</p>
+								<h4>Are the prices equal all over Madrid?</h4>
+
+								<p>Now, let's take a look at the prices around the city. In all the cities arround the world there are more expensive neighborhoods than others. Let's see if we can see this difference in the Airbnb prices.</p>
+
+								<div class="image"><img src="images/3.png"  width="700" /></div>
+
+
+								<p>This bar plot represents the mean of the prices in the neighborhood group.
+								It is cool to see that the neighborhood group with more to offer is not the one with the higher mean price. The most expensive neighborhood is the center of the city.
+								Maybe this is true for rents in long terms meaning, but for Airbnb offer this is not. Maybe because they offer accommodations more focus on tourism in that part.</p>
+
+
+								<p>Although the plot above is clear, I would like to see the way the prices are distributed.</p>
+								<div class="image"><img src="images/4.png"  width="700" /></div>
+
+								<p>In this box plot, we can see that the prices are not that different all around Madrid. But there are some
+								neighborhood groups that have a lot of variety within their prices and others that have more similar prices all around the neighborhood group.</p>
+
+								<h4>How are the prices and availability rates in Madrid over the months?</h4>
+								<p>The city of Madrid receives a lot of visitors throughout the year, but what are the availability and price of accommodations over the months?</p>
+
+								<div class="image"><img src="images/5.png"  width="900" /></div>
+
+								<p>We can see that the prices and availability rate seem to be dependent on the month. People seem to visit Madrid more in the winter and spring months. 
+								This can be due to the hot weather Madrid experiences in the summer months, and, as a Madrid citizen, I understand them.
+								 The month with the highest availability rate is also the cheapest. This can be caused by the offer and demand effect.</p>
+									
+								<h4>How well can we fit a model with the data provided to estimate the price of an accommodation?</h4>
+								
+								<p>Last but not least, let's try to create a linear model that estimates the price 
+								of an accommodation depending on the other features. Since this project is part of my learning process, I want to see with my own experience if a linear model improves it's performance when using categorical variables</p>
+
+								<p>To create the model, first, I select all the numercial variables. After doing so, I evaluate it.</p>
+								<div class="image"><img src="images/5_5.PNG"  width="900" /></div>
+
+								<p>It's seems like working with this features is useful, but the model is not optimal, since the model will only explain 44% of the variance.</p>
+								<p>Let's use some categorical features, in order to try to improve the model. After creating the dummy variables we train the linear model.</p>
+								<div class="image"><img src="images/6.PNG"  width="900" /></div>
+								<p>It seem to be better than the model that only works with numerical variables, but at the end of the day, it's not good enough</p>
+								<p>This model will poorly estimate the prices of the accommodation, so it won't be used, but maybe if we had more data, we could fit a better model.</p>
+
+							
+								<h3>Conclusions</h3>
+								<p>Madrid is big city, and so, it receives a lot of tourists every year. If you, the reader, are planning to visit this beautiful city, feel free to
+								use this information here provided to find the accommodation and time of the year which better fits you. 
+								</p>
+
+								<p> Link to the Github repository <a href="https://github.com/carboML/Airbnb_Madrid">HERE</a></p>
+
+
+								
+
+
+
+
+
+
+
+
+
+
+                                
+
+                                 
+
+
+								
+							</section>
+
+					</div>
+
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
