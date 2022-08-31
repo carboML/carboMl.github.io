@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>State of art data drift</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li class="active"><a href="blog_2.html">Data Drift</a></li>
+							<li><a href="about_me.html">About me</a></li>
+
+						</ul>
+						<ul class="icons">
+							<li><a href="www.linkedin.com/in/pablo-carbonero-alvarez" class="icon brands fa-linkedin"><span class="label">GitHub</span></a></li>
+							<li><a href="https://github.com/carboML" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+
+									<h2> State of the art of data drifting</h2>
+
+
+								</header>
+
+
+								<div class="image left "><img src="images/drifts.jpg"  width="900"/></div>
+
+
+
+
+
+
+
+                                <p>This term is used in conjunction with, and therefore often confused with, others, such as Concept drift, Covariate shift and even Label shift. To explain the differences between all these, we first define the following mathematical notations. 
+                                    The input data set to the model is called X, and consequently the output data or estimations are called Y. The conditional probability of obtaining an output, Y, based on the input X is denoted by P(X|Y).
+                                    </p>
+                                &nbsp
+                                <p></p>
+                                <p>In this article, I'm going to focus my attention on defining data drift and concept drift, since they are frequently used interchangeably. </p>
+                                
+                                
+                                
+                                <h3>DATA DRIFT</h3>
+
+								<p>Data drift happens when a model's input data changes in ways that weren't seen during training. 
+                                This change can be gradual, sudden or  stationary. 
+                                This is &nbsp;   <i>P(Y|X)<sub>train</sub> = P(Y|X)<sub>test</sub></i> However&nbsp; <i>P(X)<sub>train</sub> ≠ P(X)<sub>test</sub></i>.</p>
+
+                                
+
+
+								<p>This is, a model responds by generating the same output for the same input.
+                                 The problem is that the way in which the input data behaves changes in ways unseen in its training phase,
+                                  resulting in an erroneous prediction of the output variable. </p>
+
+                                <div class="image "><img src="images/data_drift.png"  width="900"/></div>
+
+                                <p>Let's imagine that a bus detector model has been developed. This model detects buses in a photo. 
+                                    The data set provided for the training of this model was full of images of line buses from a city. 
+                                    During the first stages of this model, the performance was superb, but as time passes,
+                                     the old buses are gradually being replaced by new electric buses in the city. 
+                                    Now, the model makes a huge number of errors since it wasn't trained to detect those types of buses. 
+                                    This way, data drift made that model lose performance.</p>
+
+                                <p>Herein lies the importance of monitoring and detecting this phenomenon in time. </p>
+
+                                <p>The solution is easy and clear in this case, the model should be re-trained. 
+                                But how much time has the model been working with a lower performance than required? 
+                                And, what if we can't measure our model's performance? </p>
+
+                                <p>The first option to mitigate the effects of data drift consists of a systematic retraining of the model. 
+                                In this case, a lot of computational resources would be needed, without any improvement, which is not optimal. 
+                                However, this technique mitigates the effects of data drift , which in some cases may be sufficient.</p>
+
+                                <p>There is another way to deal with the problem, which is through a framework that monitors the input data. 
+                                This is more sophisticated and better in the long run, but it requires constant monitoring of the data. 
+                                However, fewer computational resources are used.
+                                </p>
+
+                                <h3>CONCEPT DRIFT</h3>
+
+                                <p>A model suffer concept drift when 
+                                <i>P(Y|X)<sub>train</sub> ≠ P(Y|X)<sub>test</sub></i> However&nbsp; <i>P(X)<sub>train</sub> = P(X)<sub>test</sub></i> .</p>
+
+                                <p>That is, the input data behaves in the same way, following the same trend.
+                                However, the model's predictions worsen over time. The model's predictions get worse as time goes by.</p>
+
+
+                                <p>Let's take as an example the development of a model that estimates the temperature inside of a cylinder inside of an engine.
+                                This model has many inputs, and its output is the variable temperature inside the cylinder.</p>
+
+                                <div class="image "><img src="images/cilinder.jpg"  width="700"/></div>
+
+
+                                <p>In this case, the model works without any problems, and during its early stages, 
+                                the predictions suggested by the model are correct.</p>
+
+                                <p>Gradually, however, the cylinder begins to have small notches in its interior as well as an increasingly clogged intake and exhaust .</p>
+                                <p>Although the variable to be predicted is the same and the input data follows the same trend as those used to train the model, 
+                                    the error in the temperature estimation becomes larger and larger. 
+                                    This is due to the fact that the model was trained on a system that has changed. 
+                                    A concept drift occurs in this type of situation. </p>
+
+                                
+                                <div class="image "><img src="images/Types-of-concept-drift.png"  width="700"/></div>
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                &nbsp
+
+                                <h2>Conclusion:</h2>
+
+                                <p>To sum up, data drift tends to be confused with other similar concepts,
+                                     such as label shift, concept drift, or covariate shift. 
+                                     Although they are different concepts, they all have in common the fact that they are undesirable phenomena and therefore 
+                                     problems to control and, if they occur, to solve. </p>
+
+
+
+
+
+
+
+
+								
+							</section>
+
+					</div>
+                <!-- Footer -->
+				<footer id="footer">
+
+					<section class="split contact">
+
+						<section>
+							<h3>Phone</h3>
+							<p><a href="#">+34 685 647 017</a></p>
+						</section>
+						<section>
+							<h3>Email</h3>
+							<p><a href="#">pablocarboneroalvarezp@gmail.com</a></p>
+						</section>
+						<section>
+							<h3>Social</h3>
+							<ul class="icons alt">
+								<li><a href="www.linkedin.com/in/pablo-carbonero-alvarez" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+								<li><a href="https://github.com/carboML" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+								
+							</ul>
+						</section>
+					</section>
+				</footer>
+
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
