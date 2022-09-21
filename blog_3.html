@@ -1,0 +1,441 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Second hand car price predictor</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li class="active"><a href="blog_3.html">Price Predictor</a></li>
+							<li><a href="about_me.html">About me</a></li>
+
+						</ul>
+						<ul class="icons">
+							<li><a href="www.linkedin.com/in/pablo-carbonero-alvarez" class="icon brands fa-linkedin"><span class="label">GitHub</span></a></li>
+							<li><a href="https://github.com/carboML" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+
+									<h2> Second hand car price predictor</h2>
+
+
+								</header>
+
+
+								<div class="image "><img src="images/blog_3/header_2.jpg"  width="700"/></div>
+								&nbsp
+								<h2>Project overview</h2>
+
+
+
+
+
+
+								<p>
+									Let's say you recently received your driver's license. 
+									Congratulations! You now have everything you need to begin driving. 
+									The car is the second and trickiest ingredient.
+								</p>
+
+								<p>
+									If you don't already have one, you can choose between buying a 
+									brand-new car or a used car. Since this is your first car, 
+									it will be the one in which you learn to drive properly, 
+									so you aren't going to treat it with the utmost care.
+
+								</p>
+
+								<p>
+									Since this is going to be your first car, you decide to buy a second-hand car.
+									 It' s a cheaper and better option for your case.
+								</p>
+                                
+								<p>
+									You start looking into second-hand marketplaces and rapidly 
+									discover that there are lots of different prices for the same car. 
+									This is due to the mileage of the car, the year, the brand...
+								</p>
+
+								<p>
+									This is where this project becomes valuable. I have trained a model that estimates the price of a car based on certain features.
+									 This way, anyone can fill out the features of the car and get a fair price for the model. 
+									This way, you can compare the price of the car in the marketplace with the price the model estimates is fair.
+								</p>
+
+								<p>
+									A few steps have been taken to build this model. Let's take a look at the process of training this model.
+								</p>
+
+								<h3>1.- Data preprocessing</h3>
+
+								<p>
+									Firstly, I needed data about cars in the second-hand marketplace.
+									 I used this Kaggle dataset, which has 100K listings of cars in the UK:<a href="https://www.kaggle.com/datasets/adityadesai13/used-car-dataset-ford-and-mercedes">KAGGLE SET</a>
+								</p>
+
+								<p>
+									The data sets are separated into different car brands. Since I wanted to develop a model that predicted the price for every brand, 
+									I merged all the datasets together, adding a new column called: CAR_BRAND.
+								</p>
+
+								<p>
+									Next, I searched for missing values. This dataset doesn't have missing values, so I didn't need to impute any. 
+									Then, I searched for no sense values, like, for example, a car manufactured before 2022.
+								</p>
+
+								<p>
+									Lastly, and when I had a clean dataset to work with, I saved it into a csv file.
+								</p>
+
+								<h3>2.-Data exploration</h3>
+
+								<p>
+
+									This dataset contains information about cars. Each one is described by some features. These are:
+								</p>
+								<ul>
+									<li><b>Price</b>: In pounds </li>
+									<li><b>Transmission</b>: The vehicle's transmission type.</li>
+									<li><b>Mileage</b>: Indicate the distance used in miles.</li>
+									<li><b>MPG</b>: Stands for miles per gallon of fuel.</li>
+									<li><b>EngineSize</b>: engine size in litres</li>
+									<li><b>tax</b>: The Car Road Tax is the vehicle's road tax. Since all the cars listed here are from the UK, the tax is the UK tax </li>
+								
+								
+
+								</ul>
+
+								<p>
+									Since I have all this data, I wanted to ask and answer myself a few questions.
+								</p>
+
+								<ul>
+									<li>Do some brands use more fuel than others?</li>
+									<li>Does the price of a car depend on the brand?</li>
+									<li>What are the top 10 most sold cars and what is their mean price?</li>
+									<li>Does the price depend on the year?</li>
+									<li>Do new cars use less fuel than old cars?</li>
+
+
+
+
+								</ul>
+
+								<h4> Q1: Do some brands use more fuel than others?</h4>
+
+								<p>
+									<div class="image "><img src="images/blog_3/mpg__car_brand.png"  width="900"/></div>
+								</p>
+
+								<p>
+									The answer to this question has to be no. This is because almost all the data from every brand is located around the same range. 
+									It's true that some brands have more outliers than others. For example, Audi, BMW, and Mercedes have lots of outliers. 
+									This is because these brands are high-class,
+									 which means they also manufacture some super car models with superior performance, which leads to a higher consumption.
+
+								</p>
+
+								<h4>Q2: Does the price of a car depend on the brand?</h4>
+
+
+								<p>
+									Before we base our answer on any plot, we have to tend to think that the answer to this question is yes. 
+									This is because different brands are designed for different clients. 
+									For example, Mercedes, Audi, and BMW are designed to reach a more wealthy market that can afford expensive cars.
+									 On the other hand, other brands like Opel, and Hyundai try to reach a more average market.
+								</p>
+
+								<p>
+									<div class="image "><img src="images/blog_3/price__car_brand.png"  width="900"/></div>
+								</p>
+
+								<p>
+									The answer to this question is clearly no. Brands like Toyota, Opel, Hyundai, 
+									and Ford have almost all their car models in a certain price range lower than Mercedes, BMW, and Audi.
+								</p>
+								<p>
+									There are two brands that seem to offer both. These are Skoda and Volkswagen. 
+									They have the widest range of prices of all of them. 
+									This means that they offer cars for the middle class, but they also offer some high-quality cars too.
+								</p>
+
+								<h4>Q3: What are the top 10 most sold cars and what is their mean price?</h4>
+
+								<p>
+									<div class="image "><img src="images/blog_3/top_10_most_selled.png"  width="900"/></div>
+								</p>
+
+								<p>
+									These are the top-most sold cars in the UK's second market place. On the right hand side of the plot, 
+									we can see the prices of each car, while on the left hand side, we can see the model of the car. 
+									A cheaper car doesn't mean a best-seller car.
+								</p>
+
+								<h4>Q4: Does the price depend on the year?</h4>
+
+								<p>
+									<div class="image "><img src="images/blog_3/price__year.png"  width="900"/></div>
+								</p>
+
+								<p>
+									We can clearly see that the price depends on the year of the car. This makes sense because the older the car,
+									 the less you are going to pay for it. There is an interesting observation about this plot. 
+									 The price of the car will decrease a lot in the first 5-7 years. 
+									Then, it becomes more stable. This is what happens in the real world.
+								</p>
+
+								<h4>Q5: Do new cars use less fuel than old cars?</h4>
+
+								<p>
+									The world is becoming more and more eco-friendly each day, and this leads to fewer emissions in cars. 
+									The more mpg a car gets, the more emissions it produces. 
+								</p>
+
+								<p>
+									<div class="image "><img src="images/blog_3/year__mpg.png"  width="900"/></div>
+								</p>
+
+								<p>
+									We can clearly see that the miles per gallon that cars use has increased over the years, 
+									but, with the exception of the last few years, we can clearly observe a decrease. 
+									This is because the world is becoming more and more eco-friendly each year.
+								</p>
+
+
+								<h3>3.- Data modelling</h3>
+
+								<p>
+									A car's value is dependent on various features, as we are going to see in the corr. matrix.
+									 For example, the higher the mileage of the car, the lower the price, as well as the bigger
+									  the engine size of the car, the higher the price. This is because higher engine sizes are
+									   related to more luxury cars. With all these features combined,
+									 I'm going to do my best to find a model that is able to predict the price of a car based on its features:
+								</p>
+
+								<p>
+									To fit the best possible model, this is my way to go:
+								</p>
+
+								<ul>
+
+									<li>Create and test a linear regression model with all variables except car_model.</li>
+									<li>Use GridSearch to determine the best parameters.</li>
+									<li>Fit a linear regression model, using all the variables, including car_model, and see if it's worth to train a way more complex model.</li>
+									<li>Try and fit another different model type. Using GridSearch, get the best parameters for that model.</li>
+									
+
+
+								</ul>
+
+								<p>
+									The models are going to be evaluated using the '.score' metric from SKLearn. 
+									This is the metric SKLearn uses evaluate the performance of a model.
+								<p>
+									The reason why I'm not using the car_model feature at the beginning is that, since this is a categorical variable 
+									that I have to dummify,
+									 the model becomes extremely complex since there are a lot of car models in the dataset.
+								</p>
+
+								<h4>1.- Fit a linear regression model using all features except "car_model"</h4>
+
+								<p>
+									I randomly used a polynomial degree of 1 in this case.
+									This is the only hyperparameter I'm choosing to change in order to get better performance.
+								</p>
+
+								<p>
+									The score for this model is <b>77%.</b>
+								</p>
+
+								<h4>2.- Fit a linear regression model using Gridsearch</h4>
+
+								<p>
+									I decided to try 3 combinations of polynomial degrees, 1, 2 and 3.
+								</p>
+
+								<p>
+									<div class="image "><img src="images/blog_3/cv_1.JPG"  width="700"/></div>
+								</p>
+
+								<p>
+									It seems like the best polynomial degree is 2. 
+									After fitting the model using this hyperparameter my model has a score of <b>87%</b>. This is looking good....
+
+								</p>
+
+								<h4>What if we use the feature 'car model'</h4>
+
+								<p>
+									Since polynomial degrees higher than 1 result on an error, this hyperparameter has 0 degrees of freedom.
+
+									This is a computationally difficult task for the computer, but after a while, we can see the result.
+								</p>
+
+								<p>
+									Using the feature 'car_model' along with the rest of the features leads to a score of <b>85%</b>. 
+									This is, lower performance than the previous model with a way higher level of difficulty. 
+									Since this is not a fair trade, there is no way we are using this model.
+								</p>
+
+								<h4>Fit another type of regression model and compare</h4>
+
+								<p>
+									
+									I'm going to try and fit a K neighbors regression predictor. Just like in the linear regressor example, 
+									I'm fitting the model first and searching for the best hyperparameter later.
+								</p>
+
+								<p>
+									At the beggining I randomly decided to use 2 neigbors for the predictions. This leads to a <b>33% score</b>. I'm sure that using gridsearch to find the best hyperparameters
+									will result in a improve of performance.
+								</p>
+
+								<p>
+									
+									After applying gridsearch to find the optimal value of neighbors that makes the most of this model,
+									The number 8 was discovered by grisearch.
+
+								</p>
+
+
+								<p>
+									<div class="image "><img src="images/blog_3/cv_2.JPG"  width="700"/></div>
+								</p>
+
+								<p>
+									Although  8 neighbors is the hyperparameter that makes the most of this 
+									model, the score is only <b>45%</b>, so, in this case we can clearly state that linear regression is better in this case.
+								</p>
+
+								<p>
+
+									After doing all these combinations, I decided to use a linear regression model, with a polynomial degree of 2. This way I get the maximum performance without 
+									training a ver complex model.
+								</p>
+
+
+								<h3>Conclusion</h3>
+
+								<p>
+									Estimating the price of a car based on some features is possible A person looking to buy 
+									a second-hand car in the UK, will find this project deeply useful.
+								</p>
+
+								<p><b>Problems</b>:   Since this dataset only contains a listing from the UK, it's possible that extrapolating 
+									this information to other parts of the world will result in a decrease in performance.
+									 This information has to be updated once in a while because there are factors,
+									  like inflation or the time of the year, that affect the price of the second hand market. 
+									For example, in summer, the price of motorcycles increases, as well as in winter, the price of cars.</p>
+
+								
+								<p>
+									<b>Future work</b>: It will be interesting to build a model that estimates the price of a car based on more features. 
+									Also, I would like to work on the client profile. These features also affect the price of the car. 
+									For example, younger drivers tend to treat cars worse. This will lead to a decrease in the price.
+								</p>
+
+								<p> Link to the Github repository <a href="https://github.com/carboML/Price_predictor">HERE</a></p>
+
+
+
+							
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+
+
+
+
+				
+
+
+
+
+
+
+								
+							</section>
+
+					</div>
+                <!-- Footer -->
+				<footer id="footer">
+
+					<section class="split contact">
+
+						<section>
+							<h3>Phone</h3>
+							<p><a href="#">+34 685 647 017</a></p>
+						</section>
+						<section>
+							<h3>Email</h3>
+							<p><a href="#">pablocarboneroalvarezp@gmail.com</a></p>
+						</section>
+						<section>
+							<h3>Social</h3>
+							<ul class="icons alt">
+								<li><a href="www.linkedin.com/in/pablo-carbonero-alvarez" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+								<li><a href="https://github.com/carboML" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+								
+							</ul>
+						</section>
+					</section>
+				</footer>
+
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
