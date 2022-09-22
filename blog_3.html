@@ -76,7 +76,7 @@
 									Since this is going to be your first car, you decide to buy a second-hand car.
 									 It' s a cheaper and better option for your case.
 								</p>
-                                
+                                <h4>Problem introduction</h4>
 								<p>
 									You start looking into second-hand marketplaces and rapidly 
 									discover that there are lots of different prices for the same car. 
@@ -84,13 +84,38 @@
 								</p>
 
 								<p>
+									The prices of different cars vary greatly; even identical car models may have different prices.
+									This is because all the cars are different, with different characteristics. For example, for the same car model,
+									a car with fewer miles is usually more expensive. But the mileage is not the only feature. A car's price depends on a lot of features.
+									This is a problem because you are not a car expert and have no idea which of these features will affect the price more or less.
+									So the question is, what is a reasonable price for a car based on its characteristics? The person looking for a car might not be a
+									car enthusiast, but he wants to know what the fair price of the car he wants to purchase is. 
+
+								</p>
+								<h5> Problem solve:  </h5>
+
+								<p>
 									This is where this project becomes valuable. I have trained a model that estimates the price of a car based on certain features.
 									 This way, anyone can fill out the features of the car and get a fair price for the model. 
 									This way, you can compare the price of the car in the marketplace with the price the model estimates is fair.
 								</p>
-
+								<h4>Strategy to solve the problem</h4>
 								<p>
-									A few steps have been taken to build this model. Let's take a look at the process of training this model.
+									
+									To solve the problem, I need to train a model, but to do this, I need to follow some steps.
+									
+									<br> 
+									<b>Firstly</b>, I need to get data to train the model. In this case, I need a dataset with information about second-hand cars' features and their price.
+									<br><b>Secondly</b>, I will clean the dataset, since it might come with some null or nonsense values.
+									<br> 
+
+									<b>Thirsly</b>, since the dataset will contain some cool insights, I will ask myself some questions and answer them using the dataset information.
+									<br> <b>Last but not least</b>, the model. With all these steps done, I will be prepared to train a model, but, what type of model? what hyperparameters? how 
+									I'm going to evaluate it's performance?  
+								</p>
+								<p>
+									Reader, the answer to all these questions and all the steps taken before modeling the data are explain above!
+
 								</p>
 
 								<h3>1.- Data preprocessing</h3>
@@ -232,7 +257,7 @@
 								<h3>3.- Data modelling</h3>
 
 								<p>
-									A car's value is dependent on various features, as we are going to see in the corr. matrix.
+									A car's price is dependent on various features.
 									 For example, the higher the mileage of the car, the lower the price, as well as the bigger
 									  the engine size of the car, the higher the price. This is because higher engine sizes are
 									   related to more luxury cars. With all these features combined,
@@ -240,57 +265,75 @@
 								</p>
 
 								<p>
-									To fit the best possible model, this is my way to go:
+									To fit the best possible model, I'm going to follow the following steps. I will train three different regression models.
+									Then, I will choose the best. But, how do I choose certain model over another? I will based my decission in a metric.
 								</p>
 
-								<ul>
+								<h5> Metrics for regression models</h5>
 
-									<li>Create and test a linear regression model with all variables except car_model.</li>
-									<li>Use GridSearch to determine the best parameters.</li>
-									<li>Fit a linear regression model, using all the variables, including car_model, and see if it's worth to train a way more complex model.</li>
-									<li>Try and fit another different model type. Using GridSearch, get the best parameters for that model.</li>
+								<p>
+									In this section, I will take a look at the popular metrics for regression models. These are:
+
+									<ul>
+										<li>Mean Squared Error (MSE)</li>
+										<li>Root Mean Squared Error (RMSE)</li>
+										<li>Mean Absolute Error (MAE)</li>
+									</ul>
+								</p>
+
+								<p>The <b>Mean Squared Error</b>(MSE) is calculated as the mean or average of the squared differences between predicted and expected target values in a dataset.
+									Large errors are also inflated or magnified as a result of the squaring. In other words, the larger the discrepancy between the expected and predicted values, 
+									the larger the squared positive error that results. As a result, models are "punished" more for larger errors. The units of the MSE are squared units, this makes a little bit difficult to intepretate this metric.
+								</p>
+
+								<p>
+									The <b>Root Mean Squared Error</b> (RMSE), is an extension of the mean squared error. 
+									The square root of the error is calculated, which means that the units of the RMSE are the same as the original units of the target value that is being predicted.
+								</p>
+
+								<p>
+									<b>Mean Absolute Error</b> (MAE), is a popular metric because, like RMSE, 
+									the units of the error score match the units of the target value that is being predicted, but in this case the changes in the error are linear.
+
+								</p>
+
+								<p>
 									
-
-
-								</ul>
+										In this case, I have chosen to use the MAE metric. This is because, when evaluating the model, I want to know how much error, in pounds, the model usually makes.
+										So, for example, imagine my model has a MAE of 3000 pounds. This is, when estimating the prices of cars, you can expect an average of 3000 pounds of error.
+										Sometimes the error will be 2000, sometimes it will be 4,000, but the average of the errors will be 3000 pounds in the long run.
+								</p>
+								
+								<h5>types of models and previous explanation</h5>
+								<p>
+									I will train and compare 3 different regression models. These are, 'Linear regression','K neigbors regressor' and 'decission tree' regressor. Each of these models 
+									has it's own hyperparameters that needs to be tuned. 
+									
+								</p>
+									One of the features, 'car_model' has 196 unique values. This feature is categorical which means that needs to be dummify which means 196 new columns to our dataset.
+									Since using this feature will increase a lot the level of complexity of the model, I need to make sure that training a more complex model is worth it. 
 
 								<p>
-									The models are going to be evaluated using the '.score' metric from SKLearn. 
-									This is the metric SKLearn uses evaluate the performance of a model.
-								<p>
-									The reason why I'm not using the car_model feature at the beginning is that, since this is a categorical variable 
-									that I have to dummify,
-									 the model becomes extremely complex since there are a lot of car models in the dataset.
+
 								</p>
 
 								<h4>1.- Fit a linear regression model using all features except "car_model"</h4>
 
-								<p>
-									I randomly used a polynomial degree of 1 in this case.
-									This is the only hyperparameter I'm choosing to change in order to get better performance.
-								</p>
-
-								<p>
-									The score for this model is <b>77%.</b>
-								</p>
-
-								<h4>2.- Fit a linear regression model using Gridsearch</h4>
-
-								<p>
-									I decided to try 3 combinations of polynomial degrees, 1, 2 and 3.
-								</p>
-
-								<p>
-									<div class="image "><img src="images/blog_3/cv_1.JPG"  width="700"/></div>
-								</p>
-
-								<p>
-									It seems like the best polynomial degree is 2. 
-									After fitting the model using this hyperparameter my model has a score of <b>87%</b>. This is looking good....
+								<p> 
+									The first thing we have to take into a consideration is: What hyperparameters are we going to change in orther to get the best performance?<br>
+									The answer to that question in this case is 'Polynomial degree'. I'm going to try degrees = [1,2,3,4]. If degree 4 results in worse performance than three, 
+									I know that a polynomial degree of three is optimal.<br>
+									I will use Gridsearch for this task.
 
 								</p>
 
-								<h4>What if we use the feature 'car model'</h4>
+								<p>
+									After applying Gridsearch, the optimal hyperparameter is degree = 3. This gives this model a MAE of 2014.966 pounds.
+								</p>
+
+			
+
+								<h4>2.- What if we use the feature 'car model'</h4>
 
 								<p>
 									Since polynomial degrees higher than 1 result on an error, this hyperparameter has 0 degrees of freedom.
@@ -299,46 +342,58 @@
 								</p>
 
 								<p>
-									Using the feature 'car_model' along with the rest of the features leads to a score of <b>85%</b>. 
+									Using the feature 'car_model' along with the rest of the features leads to a MAE of <b>2276.2754</b>.
 									This is, lower performance than the previous model with a way higher level of difficulty. 
 									Since this is not a fair trade, there is no way we are using this model.
 								</p>
 
-								<h4>Fit another type of regression model and compare</h4>
+								<h4>3.- fit another model, KNeighbors Regressor</h4>
 
 								<p>
-									
-									I'm going to try and fit a K neighbors regression predictor. Just like in the linear regressor example, 
-									I'm fitting the model first and searching for the best hyperparameter later.
+									In this case, the hyperparameter that needs to be tuned is the numbers of neigbors the model uses to predict. I will use neigbors from 1 to 10 
+									in order to select the best. If the best hyperparameter is 10, then I will try some more neigbors but if the hyperparameter is less than 10, then I 
+									know that neigbor number is the optimal.
 								</p>
 
 								<p>
-									At the beggining I randomly decided to use 2 neigbors for the predictions. This leads to a <b>33% score</b>. I'm sure that using gridsearch to find the best hyperparameters
-									will result in a improve of performance.
+									After applying Gridsearch the model seems to have it's best performance with 9 neigbors. This give the regressor a MAE of <b>5148.66</b>. 
+								</p>
+
+				
+								<h4>4.- fit another model, Decission tree Regressor</h4>
+
+								<p> 
+									Last but not least, I will train a decission tree regressor model. THe hyperparameter I will tune for this model is the 'min_samples_split'. I will chose between
+									using 2 or 3.
+
+								</p>
+								<p> 
+									After applying Gridsearch, the model seems to present it's best performance with 3, this gives the model a MAE of <b>2156.50</b>
+
+								</p>
+
+								<h4> Evaluation</h4>
+								<p>
+									Let's recap:
+
 								</p>
 
 								<p>
-									
-									After applying gridsearch to find the optimal value of neighbors that makes the most of this model,
-									The number 8 was discovered by grisearch.
-
+									<div class="image "><img src="images/blog_3/table.JPG"  width="900"/></div>
 								</p>
-
-
 								<p>
-									<div class="image "><img src="images/blog_3/cv_2.JPG"  width="700"/></div>
+									This table contains the information about the model type, model hyperparameter and MAE. After looking at it, we can make a decission. 
+									I will choose the model with the lower number of MAE, in this case, the linear regression model that doesn't count with 'car_model' feature.
 								</p>
 
 								<p>
-									Although  8 neighbors is the hyperparameter that makes the most of this 
-									model, the score is only <b>45%</b>, so, in this case we can clearly state that linear regression is better in this case.
+									Since this is the model that the user will be using to make the predictions, lets see more about the model, for example, the feature importance:
 								</p>
 
 								<p>
-
-									After doing all these combinations, I decided to use a linear regression model, with a polynomial degree of 2. This way I get the maximum performance without 
-									training a ver complex model.
+									<div class="image "><img src="images/blog_3/features_importance.JPG"  width="500"/></div>
 								</p>
+
 
 
 								<h3>Conclusion</h3>
