@@ -47,7 +47,7 @@
 									</h2>
 
 								</header>
-								<div class="image "><img src="images/madrid.jpg" width="1000" /></div>
+								<div class="image fit "><img src="images/madrid.jpg" width="1000" /></div>
 								&nbsp
 								&nbsp
 								<p>Madrid is the capital city of Spain, with around 3.223 million people living in the city. 
@@ -72,7 +72,7 @@
 								<p>To begin with, let's use the data to discover how much offer each neighbourhood group have. With this info, I created a bar plot. Each bar 
                                 and colour represent a neighbourhood group. 
                                 The bigger the bar, the more of the total offer the neighborhood group has</p>
-								<img class = 'image' src="images/1.png"width="900" />
+								<div class = 'image fit '><img src= "images/1.png" width="900" /></div>
 
 
 
@@ -87,7 +87,7 @@
 								<p>Let's try to answer this question based on a plot. To visualize this, I make the same plot as before, but this time with each individual neighborhood's offer. 
 								The color of each bar will represent the neighborhood group they are part of. If the bar plot gets the same arcoiris pattern, the answer will be yes.</p>
 
-                                <div class="image"><img src="images/2.png"  width="900" /></div>
+                                <div class="image fit"><img src="images/2.png"  width="900" /></div>
 
 
 								<p>As we can see, the plot doesn't show an arcoiris pattern, so the answer to this question is no. Although we didn't get this pattern, we 
@@ -97,7 +97,7 @@
 
 								<p>Now, let's take a look at the prices around the city. In all the cities arround the world there are more expensive neighborhoods than others. Let's see if we can see this difference in the Airbnb prices.</p>
 
-								<div class="image"><img src="images/3.png"  width="700" /></div>
+								<div class="image fit"><img src="images/3.png"  width="700" /></div>
 
 
 								<p>This bar plot represents the mean of the prices in the neighborhood group.
@@ -106,7 +106,7 @@
 
 
 								<p>Although the plot above is clear, I would like to see the way the prices are distributed.</p>
-								<div class="image"><img src="images/4.png"  width="700" /></div>
+								<div class="image fit"><img src="images/4.png"  width="700" /></div>
 
 								<p>In this box plot, we can see that the prices are not that different all around Madrid. But there are some
 								neighborhood groups that have a lot of variety within their prices and others that have more similar prices all around the neighborhood group.</p>
@@ -114,7 +114,7 @@
 								<h4>How are the prices and availability rates in Madrid over the months?</h4>
 								<p>The city of Madrid receives a lot of visitors throughout the year, but what are the availability and price of accommodations over the months?</p>
 
-								<div class="image"><img src="images/5.png"  width="900" /></div>
+								<div class="image fit"><img src="images/5.png"  width="900" /></div>
 
 								<p>We can see that the prices and availability rate seem to be dependent on the month. People seem to visit Madrid more in the winter and spring months. 
 								This can be due to the hot weather Madrid experiences in the summer months, and, as a Madrid citizen, I understand them.
@@ -126,11 +126,11 @@
 								of an accommodation depending on the other features. Since this project is part of my learning process, I want to see with my own experience if a linear model improves it's performance when using categorical variables</p>
 
 								<p>To create the model, first, I select all the numercial variables. After doing so, I evaluate it.</p>
-								<div class="image"><img src="images/5_5.PNG"  width="900" /></div>
+								<div class="image fit"><img src="images/5_5.PNG"  width="900" /></div>
 
 								<p>It's seems like working with this features is useful, but the model is not optimal, since the model will only explain 44% of the variance.</p>
 								<p>Let's use some categorical features, in order to try to improve the model. After creating the dummy variables we train the linear model.</p>
-								<div class="image"><img src="images/6.PNG"  width="900" /></div>
+								<div class="image fit"><img src="images/6.PNG"  width="900" /></div>
 								<p>It seem to be better than the model that only works with numerical variables, but at the end of the day, it's not good enough</p>
 								<p>This model will poorly estimate the prices of the accommodation, so it won't be used, but maybe if we had more data, we could fit a better model.</p>
 
