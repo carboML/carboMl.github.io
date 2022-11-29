@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Performance indicators in a classification model</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <link rel="icon" type="image/x-icon" href="images/favicon.PNG">
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li class="active"><a href="blog_6.html">Classification KPIS</a></li>
+							<li><a href="about_me.html">About me</a></li>
+
+						</ul>
+						<ul class="icons">
+							<li><a href="www.linkedin.com/in/pablo-carbonero-alvarez" class="icon brands fa-linkedin"><span class="label">GitHub</span></a></li>
+							<li><a href="https://github.com/carboML" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+
+									<h2> Performance indicators in a classification model</h2>
+
+
+								</header>
+
+
+								<div class="image fit "><img src="images/blog_6/markus-spiske-11bjTWQ9mV0-unsplash.jpg"  width="600"/></div>
+								&nbsp
+
+
+								<p> You have probably come across terms such as error rate, confusion matrix, precision, recall and the acronym AUC ROC. 
+                                All these terms measure in one way or another the performance of a model, in short, how well it performs its classification function. 
+								</p>
+
+                                <p>In this post, I want to explain for everyone, and for my future self in 3 months, when I want to review these terms again, what each one means, how it is calculated, when we should use each one and how the terms themselves are interrelated.</p>
+                                
+                                <p>We all know about covid, and therefore we all know about the existence of antigen tests. Those plastic boxes that told you whether or not you had covid. Believe it or not, it is tremendously similar to what we mean by a classification model in terms of artificial intelligence. Weird, I know, but think about it!</p>
+								
+                                
+                                <p>The test receives an input (a sample of your nasal flows) and provides an output (covid or not). Let's treat this covid test for all effects as a classification model.</p>
+
+                                <p>Usually this test doesn't fail, if you have covid it tells you so and if you don't it shows you so too. However, in this classification task no model is perfect, and there will be times when you have covid and it tells you that you don't, just as there will be times when you don't have covid and the test tells you that you do.</p>
+
+
+                                <p>It is therefore very important to introduce the following concepts:</p>
+
+
+								&nbsp
+                                <ul>
+
+                                    <li>TP (True positive): The model indicates that you have covid and the reality is that you do.</li>
+                                    <li>TN (True negative): The model indicates that you do not have covid and the reality is that you do not have it</li>
+                                    <li>FP (False positive): The model indicates that you have covid but the reality is that you do not.</li>
+                                    <li>FN (False negative): The model indicates that you do not have covid but the reality is that you do.</li>
+
+                                </ul>
+
+                                <p>It is very important to have these concepts clear, as they will be key to understand the rest of the article.</p>
+                                
+                                <h3>Error rate</h3>
+                                <p>The error rate represents the ratio between the errors in the classification (FP and FN) among all the data that have been classified. In short, in overall percentage, how much the model is wrong.</p>
+                                <p>
+									<div class="image fit "><img src="images/blog_6/error_rate.PNG"  width="800"/></div>
+								</p>
+
+                                <p>This indicator helps us to know how much the model is mistaken in general. Obviously, the model may be worse at detecting one class or another, however, this indicator is only useful to get a general idea of how good it is.</p>
+                                <h3>Precision and Recall</h3>
+                                <p>To explain this concept, it is important to ask a question. Which is more harmful, telling a person who does NOT have covid that they DO have it, or the other way around, telling a person who suffers from the disease that they do not have it. </p>
+                                <p>It is clear that the latter is worse. This is why the concepts of precision and recall exist. Accuracy and recall are almost complementary concepts, the more accuracy, the less recall and vice versa. That's great Pablo! But what are they?</p>
+							
+                                
+                                <p>Unlike error rate, precision and recall apply to each class, that is, we will have precision and recall for positives and negatives.</p>
+                                <p>Precision is exactly what the name implies, how accurately we get it right when we classify a type. That is, of all the people the model says are positive, how many are actually positive.</p>
+                            
+                                <p>
+									<div class="image fit "><img src="images/blog_6/Precission_formula.PNG"  width="800"/></div>
+								</p>
+                            
+                                <p>Recall, on the other hand, is the other side of the coin and answers the question of how many of all the positive people in the sample I am able to detect effectively.</p>
+                            
+                                <p>
+									<div class="image fit "><img src="images/blog_6/recall_formula.PNG"  width="800"/></div>
+								</p>
+                                <p>If I concentrate on building a model that when it stipulates that someone is negative, it is NEVER wrong, I will have a model with excellent accuracy, but it will error on the side of failing to classify as negative many people who may be positive. Conversely, if all the people in the sample are positive as positive, the model will have incredible recall and we will ensure that all positives are classified as such, but we will be erring on the other hand, classifying as positive many people who are not.</p>
+                            
+                                <p>To create an efficient model, the relationship between the two variables must be taken into account.</p>
+                            
+                                <p>
+									<div class="image fit "><img src="images/blog_6/precision_vs_recall.jpg"  width="800"/></div>
+								</p>
+                                <p>There is a point at which a good relationship between the two can be achieved. However, it is very important to attend to the particular problem at hand. </p>
+                            
+                                <p>In the case of covid, it is better to have a higher recall, to detect all people who have covid, because it is better to have a False Positive than a False Negative.</p>
+                                <p>Let's imagine that, in a population, 1000 people take the covid test. After obtaining their results, they are tested again, this time using a blood test (more reliable test) to check if the test result is correct. After comparing the results, we obtain what we call a "Confusion Matrix"</p>
+                            
+                                <h3>CONFUSION MATRIX</h3>
+                                <p>
+									<div class="image fit "><img src="images/blog_6/confusion_matrix.png"  width="800"/></div>
+								</p>
+                                <p>The confusion matrix shows in a very visual way the amount of TP, TN, FP and FN that have occurred in the classification task. It is also used to be able to see in a simple and clear way the precision and recall value of both, positives and negatives.</p>
+                                <p>It is for this reason that when data scientists want to evaluate the performance of a classification model, they think of the confusion matrix. However, this is not the only thing they use, they also keep an eye on the AUC ROC curve.</p>
+                            
+                                <h3>ROC curve</h3>
+                                <p>An ROC curve (receiver operating characteristic curve) is a graph that shows the performance of a classification model at all classification thresholds. This curve plots two parameters:</p>
+                                
+                                <ul>
+                                    <li>True Positive Rate</li>
+                                    <li>False Positive Rate</li>
+                                </ul>
+                            
+                                <p>
+									<div class="image fit "><img src="images/blog_6/TPr_y_FPr.PNG"  width="800"/></div>
+								</p>
+                            
+                            
+                            
+                                <p>
+									<div class="image fit "><img src="images/blog_6/roc_curve.png"  width="800"/></div>
+								</p>
+                            
+                                <h3>AUC: Area under the curve</h3>
+                            
+                                <p>It's the Area under the ROC curve. Since the value of this curve goes from 0 to 1 on both axes, the maximum area under the curve is 1 and the minimum is 0. </p>
+                            
+                                <ul>
+                                    <li>AUC = 1 means all the positives are true positives and all the negatives are True negatives</li>
+                                    <li>AUC = 0.5 it's the worse situation possible. This is a classifier that can't distingyust between positives and negatives at all.</li>
+                                    <li>AUC = 0 mean all the positives are true negatives and all the negatives are True positives ( so, we have a perfect imperfect classifier)</li>
+                                </ul>
+
+                                <p>
+									<div class="image fit "><img src="images/blog_6/auc_cases.png"  width="800"/></div>
+								</p>
+                            
+                                <h4>Conclusion</h4>
+
+                                <p>When I first learned the theory of classification models, I only learned the error rate. However, you quickly realise that you need other metrics to evaluate the performance of a model in detail, so that you can calibrate it and know where there are areas for improvement.</p>
+                            
+                            </section>
+
+					</div>
+                <!-- Footer -->
+				<footer id="footer">
+
+					<section class="split contact">
+
+						<section>
+							<h3>Phone</h3>
+							<p><a href="#">+34 685 647 017</a></p>
+						</section>
+						<section>
+							<h3>Email</h3>
+							<p><a href="#">pablocarboneroalvarezp@gmail.com</a></p>
+						</section>
+						<section>
+							<h3>Social</h3>
+							<ul class="icons alt">
+								<li><a href="www.linkedin.com/in/pablo-carbonero-alvarez" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+								<li><a href="https://github.com/carboML" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+								
+							</ul>
+						</section>
+					</section>
+				</footer>
+
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
