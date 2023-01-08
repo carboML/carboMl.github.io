@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>An analytic approach to the padel racket market</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <link rel="icon" type="image/x-icon" href="images/favicon.PNG">
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li class="active"><a href="blog_7.html">Padel racket market</a></li>
+							<li><a href="about_me.html">About me</a></li>
+
+						</ul>
+						<ul class="icons">
+							<li><a href="www.linkedin.com/in/pablo-carbonero-alvarez" class="icon brands fa-linkedin"><span class="label">GitHub</span></a></li>
+							<li><a href="https://github.com/carboML" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+
+									<h2> An analytic approach to the padel racket market</h2>
+
+
+								</header>
+
+
+								
+								&nbsp
+
+
+								<p> If you've ever considered buying a padel racket, you may find yourself faced with a lot of different types, overwhelmed and not knowing where to start. I'm going to help you, and I'm going to do this, making sense of it with data.</p>
+
+                                <p>Something like a car can be parameterised, at a glance, very easily. Colour, horsepower, number of doors, manufacturer, type of traction, type of gearbox, price....</p>
+								<p>It is exactly the same with padel bats, there are many types according to their characteristics, however, at first glance and to the untrained eye it is very difficult to notice. </p>
+								<p>
+									<div class="image fit "><img src="images/blog_7/features_pala_padel.PNG"  width="800"/></div>
+								</p>
+								&nbsp
+								<p>A padel racket has all these characteristics, as you can imagine, there are many types. </p>
+                                <p>Using a dataset that I have created with the help of a webscraping bot, we are going to make an analysis of the padel racket market.</p>
+								
+								<p>Each padel racket is then characterised by its type of game, gender, core material, level of play, frame, shape, age, colour, face material, balance and year of manufacture, not forgetting the brand.</p>
+								
+								<p>
+									<div class="image fit "><img src="images/blog_7/df_head.png"  width="800"/></div>
+								</p>
+								<p>In this short article I will focus on answering the most important questions when analysing the market.</p>
+								
+
+
+								<h3>Q1: What are the predominant brands on the market?</h3>
+
+								<p>There are dozens of padel racket manufacturers. Each one of them tries to get the sponsorship of the best players of the WPT in order to give visibility to their rackets, however, which is the manufacturer that has more rackets available in the market?</p>
+							
+								<p>
+									<div class="image fit "><img src="images/blog_7/palas_fabricantes.png"  width="800"/></div>
+								</p>
+								<p>The manufacturers with the most models available on the market are, in order, DUNLOP, SIUX, BULLPADEL, ADIDAS and finally SOFTEE.</p>
+								
+								<h3>Q2: Is there a relationship between the balance of the racket and its shape?</h3>
+							
+								<p>Padel rackets can have 3 shapes. Round, teardrop or diamond. The shape of the padel racket determines the place where its sweet spot will be located. This is the place on the racket where we should hit the ball.</p>
+							
+								<p>
+									<div class="image fit "><img src="images/blog_7/large-punto-dulce.jpg"  width="800"/></div>
+								</p>
+
+								<p>Let's check if this is true by making use of the dataset.</p>
+
+
+								<p>
+									<div class="image fit "><img src="images/blog_7/relacion_forma_balance.png"  width="800"/></div>
+								</p>
+							
+								<p>As can be seen, the number of diamond blades sold in the market with a high balance is much higher than those sold with any other type of balance. The same happens with teardrop-shaped blades that have a medium balance and round blades that are sold with a medium and low balance.</p>
+								
+
+								<h3>Q3: Does the shape of the racket affect the style of play?</h3>
+								<p>A diamond-shaped racket allows you to hit with more power, so it is logical that players with an aggressive and powerful style of play will choose this type of racket to play with. With the same logic, players who need good control but good power at the same time, will choose a teardrop-shaped racket, for a versatile playing style. Round blades are reserved for players who want good control and manoeuvrability, thanks to their low sweet spot.</p>
+							
+								<p>Let's see if the shape of the racket is reflected in the style of play for which it is indicated.</p>
+								<p>
+									<div class="image fit "><img src="images/blog_7/heatmap_tipo_juego__forma.png"  width="800"/></div>
+								</p>
+								
+								<p>In this heat map you can see how the hottest boxes correspond to the relationships POWER - DIAMOND, POLIVALENT - LAGRIMA, CONTROL - ROUND.</p>
+
+								<h2>Conclusion</h2>
+								<p>The market is consistent with reality, and this is demonstrated by the data. When buying a shovel, you should ask yourself 2 questions. </p>
+								<ul>
+
+                                    <li>How much money do I want to spend?</li>
+									<li>What is my style of play?</li>
+                                </ul>
+								<p>The answer to the first question will define the brand and materials, the second answer will determine the shape of the racket.</p>
+							
+							
+							</section>
+
+					</div>
+                <!-- Footer -->
+				<footer id="footer">
+
+					<section class="split contact">
+
+						<section>
+							<h3>Phone</h3>
+							<p><a href="#">+34 685 647 017</a></p>
+						</section>
+						<section>
+							<h3>Email</h3>
+							<p><a href="#">pablocarboneroalvarezp@gmail.com</a></p>
+						</section>
+						<section>
+							<h3>Social</h3>
+							<ul class="icons alt">
+								<li><a href="www.linkedin.com/in/pablo-carbonero-alvarez" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+								<li><a href="https://github.com/carboML" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+								
+							</ul>
+						</section>
+					</section>
+				</footer>
+
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
